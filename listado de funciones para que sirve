@@ -1,1 +1,16 @@
-
+Listado de funciones y para qué sirven
+def: se utiliza para definir o crear una función.
+return: devuelve un valor desde la función.
+print(): muestra información en pantalla.
+input(): permite ingresar datos por teclado.
+len(): devuelve la cantidad de elementos de una lista o caracteres de un texto.
+type(): indica el tipo de dato de una variable.
+int(): convierte un valor a número entero.
+float(): convierte un valor a número decimal.
+str(): convierte un valor a texto.
+max(): devuelve el valor más grande de un conjunto de datos.
+min(): devuelve el valor más pequeño de un conjunto de datos.
+sum(): suma todos los elementos de una lista.
+range(): genera una secuencia de números (muy usada en ciclos).
+abs(): devuelve el valor absoluto de un número.
+round(): redondea un número.
