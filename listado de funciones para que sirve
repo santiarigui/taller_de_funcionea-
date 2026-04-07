@@ -1,16 +1,84 @@
 Listado de funciones y para qué sirven
 def: se utiliza para definir o crear una función.
 return: devuelve un valor desde la función.
+
+# def y return
+def sumar(a, b):
+    return a + b
+
 print(): muestra información en pantalla.
+
+# print()
+print("Hola mundo")
+
 input(): permite ingresar datos por teclado.
+
+# input()
+nombre = input("Digite su nombre: ")
+print("Hola", nombre)
+
 len(): devuelve la cantidad de elementos de una lista o caracteres de un texto.
+
+# len()
+texto = "hola"
+print(len(texto))  # Resultado: 4
+
 type(): indica el tipo de dato de una variable.
+
+# type()
+numero = 10
+print(type(numero))  # Resultado: <class 'int'>
+
 int(): convierte un valor a número entero.
+
+# int()
+numero = int("5")
+print(numero + 2)  # Resultado: 7
+
 float(): convierte un valor a número decimal.
+
+# float()
+numero = float("3.5")
+print(numero + 1)  # Resultado: 4.5
+
 str(): convierte un valor a texto.
+
+# str()
+numero = 10
+texto = str(numero)
+print(texto)  # Resultado: "10"
+
 max(): devuelve el valor más grande de un conjunto de datos.
+
+# max()
+lista = [1, 5, 3]
+print(max(lista))  # Resultado: 5
+
 min(): devuelve el valor más pequeño de un conjunto de datos.
+
+# min()
+lista = [1, 5, 3]
+print(min(lista))  # Resultado: 1
+
 sum(): suma todos los elementos de una lista.
+
+# sum()
+lista = [1, 2, 3]
+print(sum(lista))  # Resultado: 6
+
 range(): genera una secuencia de números (muy usada en ciclos).
+
+# range()
+for i in range(3):
+    print(i)
+# Resultado: 0, 1, 2
+
 abs(): devuelve el valor absoluto de un número.
+
+# abs()
+print(abs(-5))  # Resultado: 5
+
 round(): redondea un número.
+
+# round()
+print(round(3.6))  # Resultado: 4
