@@ -4,10 +4,15 @@ def analizar_notas(lista_notas):
     promedio = sum(lista_notas) / len(lista_notas)
     nota_alta = max(lista_notas)
     nota_baja = min(lista_notas)
+    
+    print("Promedio:", promedio)
+    print("Nota alta:", nota_alta)
+    print("Nota baja:", nota_baja)
+    
     return promedio, nota_alta, nota_baja
 
 # Ejemplo
-notas = [3.2, 4.0, 3,0, 5.0]
+notas = [3.2, 4.0, 3.0, 5.0]
 print(analizar_notas(notas))
 
 
@@ -15,29 +20,39 @@ print(analizar_notas(notas))
 # estudiantes aprobados(notas>3.0)
 
 def aprobados(lista_estudiantes):
-    return [nombre for nombre, nota in lista_estudiantes if nota >= 3.0]
+    resultado = [nombre for nombre, nota in lista_estudiantes if nota >= 3.0]
+    print("Aprobados:", resultado)
+    return resultado
 
 # Ejemplo
 datos = [("Ana", 4.0), ("Luis", 2.5), ("Pedro", 3.2)]
 print(aprobados(datos))
 
-#Agenda con diccionario
+
+# Agenda con diccionario
 agenda = {}
 
 def agregar(nombre, telefono):
     agenda[nombre] = telefono
+    print(f"{nombre} agregado a la agenda")
 
 def buscar(nombre):
-    return agenda.get(nombre, "No encontrado")
+    resultado = agenda.get(nombre, "No encontrado")
+    print(f"Buscar {nombre}:", resultado)
+    return resultado
 
 def eliminar(nombre):
     agenda.pop(nombre, None)
+    print(f"{nombre} eliminado de la agenda")
     
-#inventario(valor total)
+
+# inventario(valor total)
 def valor_total(inventario):
     total = 0
     for producto in inventario:
         total += producto["precio"] * producto["cantidad"]
+    
+    print("Valor total:", total)
     return total
 
 # Ejemplo
@@ -47,12 +62,18 @@ inventario = [
 ]
 print(valor_total(inventario))
 
-#frecuencia de palabras
+
+# frecuencia de palabras
 def frecuencia_palabras(lista):
     diccionario = {}
     for palabra in lista:
         diccionario[palabra] = diccionario.get(palabra, 0) + 1
+    
+    print("Frecuencia:", diccionario)
     return diccionario
+
+print(frecuencia_palabras(["hola", "mundo", "hola", "python"]))
+
 
 # temperaturas por ciudad
 def temperaturas(datos):
@@ -66,7 +87,16 @@ def temperaturas(datos):
             if t < min_temp[1]:
                 min_temp = (ciudad, t)
 
+    print("Max temperatura:", max_temp)
+    print("Min temperatura:", min_temp)
+
     return max_temp, min_temp
+
+print(temperaturas({
+    "Bogotá": [18, 20, 15],
+    "Medellín": [28, 30, 25]
+}))
+
 
 # notas a letras
 def convertir_nota(nota):
@@ -82,30 +112,68 @@ def convertir_nota(nota):
         return "F"
 
 def reporte(estudiantes):
-    return [(nombre, convertir_nota(nota)) for nombre, nota in estudiantes]
+    resultados = [(nombre, convertir_nota(nota)) for nombre, nota in estudiantes]
+    
+    print("Reporte de calificaciones:")
+    for nombre, letra in resultados:
+        print(f"{nombre}: {letra}")
+    
+    return resultados
+
+
+# Ejemplo de uso
+estudiantes = [
+    ("Ana", 4.7),
+    ("Luis", 3.9),
+    ("Carlos", 2.5),
+    ("Marta", 1.8)
+]
+
+reporte(estudiantes)
+
 
 # carrito de compras
 carrito = []
 
 def agregar_producto(nombre, precio):
     carrito.append(precio)
+    print(f"{nombre} agregado al carrito")
 
 def aplicar_descuento(porcentaje):
-    return sum(carrito) * (1 - porcentaje / 100)
+    resultado = sum(carrito) * (1 - porcentaje / 100)
+    print("Total con descuento:", resultado)
+    return resultado
 
 def total():
-    return sum(carrito)
+    resultado = sum(carrito)
+    print("Total:", resultado)
+    return resultado
 
-#agrupacion por categoria
+agregar_producto("Mouse", 20000)
+agregar_producto("Teclado", 50000)
+total()
+aplicar_descuento(10)
+
+
+# agrupacion por categoria
 def agrupar(lista):
     resultado = {}
     for producto, categoria in lista:
         if categoria not in resultado:
             resultado[categoria] = []
         resultado[categoria].append(producto)
+    
+    print("Agrupado:", resultado)
     return resultado
 
-#sistema de votos
+print(agrupar([
+    ("Mouse", "Tecnología"),
+    ("Manzana", "Comida"),
+    ("Teclado", "Tecnología")
+]))
+
+
+# sistema de votos
 def votos(lista_votos, candidatos):
     conteo = {c: 0 for c in candidatos}
     invalidos = 0
@@ -120,5 +188,12 @@ def votos(lista_votos, candidatos):
     ganador = max(conteo, key=conteo.get)
     porcentaje = (conteo[ganador] / total) * 100 if total > 0 else 0
 
+    print("Conteo:", conteo)
+    print("Ganador:", ganador)
+    print("Porcentaje:", porcentaje)
+    print("Inválidos:", invalidos)
+
     return ganador, porcentaje, invalidos
+
+print(votos(["Ana", "Luis", "Ana", "Pedro"], ["Ana", "Luis"]))
 
